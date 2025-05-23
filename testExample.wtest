@@ -1,9 +1,25 @@
-import example.pepita
+import autos.*
+import taller.*
 
-describe "group of tests for pepita" {
-
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
+describe "test dominic toretto" {
+  test "dominic compra todos los autos" {
+    dominic.comprar(ferrari)
+    dominic.comprar(flecha)
+    dominic.comprar(intocable)
+    dominic.comprar(inventado)
+    dominic.hacerPrueba()
+    assert.equals([ferrari, flecha, intocable, inventado], dominic.autosNoEnCondiciones())
   }
+
+  test "la ferrari hace una prueba y se queda fuera de condiciones" {
+    ferrari.hacerPrueba()
+    assert.equals(false, ferrari.enCondiciones())
+  }
+
+  test "reparar la ferrari" {
+    ferrari.reparar()
+    assert.equals(true, ferrari.enCondiciones())
+  }
+
 
 }
